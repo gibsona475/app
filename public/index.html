@@ -1,34 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jamstack Explorers - Up and Running with Serverless Functions</title>
-  </head>
-  <body>
-    <h1>Up and Running with Serverless Functions</h1>
-    <button id="fetch-btn">Fetch</button>
-    <button id="fetch-pokedex-btn">Fetch Pokedex </button>
-    <p id="response-output">Response Placeholder</p>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const fetchBtn = document.getElementById('fetch-btn')
-        const fetchPokedexBtn = document.getElementById('fetch-pokedex-btn')
-        const responseText = document.getElementById('response-output')
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Move it move it</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
 
-        fetchPokedexBtn.addEventListener('click', async() =>{
-          const response = await fetch('/.netlify/functions/pokedex').then(response => response.json())
-          responseText.innerText = JSON.stringify(response)
-        })
+<body id="body">
+  <header id="header"> || Move It Move It ||</header>
 
-        fetchBtn.addEventListener('click', async () => {
-          const response = await fetch('/.netlify/functions/hello-world').then(response => response.json())
+  <h1 id="h-one">Have you moved today?</h1>
+  <button id="fetch-kanto-btn"> YES </button>
+  <button id="fetch-hoenn-btn"> NO... </button>
 
-          responseText.innerText = JSON.stringify (response)
-        })
+  <p class="col"> Pros of moving:
+    <li> Exercise controls weight.</li>
+    <li> Exercise can help prevent excess weight gain or help maintain weight loss </li>
+    <li> Exercise combats health conditions and diseases. </li>
+    <li> Exercise improves mood </li>
+    <li> Exercise boosts energy </li>
+    <li> Exercise promotes better sleep </li>
+  </p>
+
+  <p class="container"> Cons of not moving:
+    <li> Obesity </li>
+    <li> Heart diseases, including coronary artery disease and heart attack </li>
+    <li> High blood pressure </li>
+    <li> High cholesterol </li>
+    <li> Stroke </li>
+    <li> Metabolic syndrome </li>
+    <li> Type 2 diabetes </li>
+    <li> Certain cancers, including colon, breast, and uterine cancers </li>
+    <li> Osteoporosis and falls </li>
+    <li> Increased feelings of depression and anxiety </li>
+  </p>
+
+  <p id="response-output">Response Placeholder</p>
+  <img id="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ronburgundy-1520353235.png">
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const fetchBtn = document.getElementById('fetch-btn')
+      const fetchKantoBtn = document.getElementById('fetch-kanto-btn')
+      const fetchHoennBtn = document.getElementById('fetch-hoenn-btn')
+
+      const responseText = document.getElementById('response-output')
+
+      fetchPokedexBtn.addEventListener('click', async () => {
+        const response = await fetch('/.netlify/functions/pokedex').then(response => response.json())
+        responseText.innerText = JSON.stringify(response)
       })
-    </script>
-  </body>
+
+      fetchKantoBtn.addEventListener('click', async () => {
+        const response = await fetch('/.netlify/functions/pokedex', {
+          method: 'POST',
+          body: JSON.stringify({
+            region: 'kanto'
+          })
+        }).then(response => response.json())
+        responseText.innerText = JSON.stringify(response)
+      })
+    })
+  </script>
+</body>
+
 </html>
