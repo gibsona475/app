@@ -68,10 +68,10 @@
 
       const responseText = document.getElementById('response-output')
 
-      fetchPokedexBtn.addEventListener('click', async () => {
+      /*fetchPokedexBtn.addEventListener('click', async () => {
         const response = await fetch('/.netlify/functions/pokedex').then(response => response.json())
         responseText.innerText = JSON.stringify(response)
-      })
+      })*/
 
       fetchKantoBtn.addEventListener('click', async () => {
         const response = await fetch('/.netlify/functions/pokedex', {
