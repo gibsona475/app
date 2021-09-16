@@ -20,6 +20,7 @@
     <div class="container">
       <button class="fetch-kanto-btn"> YES </button>
       <button class="fetch-hoenn-btn"> NO... </button>
+      <button class="apiButton"> API Button </button>
     </div>
   </section>
   <section class="response medpad">
@@ -65,13 +66,20 @@
       const fetchBtn = document.getElementById('fetch-btn')
       const fetchKantoBtn = document.getElementById('fetch-kanto-btn')
       const fetchHoennBtn = document.getElementById('fetch-hoenn-btn')
+      const fetchApi = document.getElementById('apiButton')
 
       const responseText = document.getElementById('response-output')
 
-      /*fetchPokedexBtn.addEventListener('click', async () => {
+fetchApi.addEventListener('click', async () => {
+  const response = await fetch('/.netlify/functions/pokedex').then(response => response.json())
+        responseText.innerText = JSON.stringify(response)
+      })
+})
+
+      fetchPokedexBtn.addEventListener('click', async () => {
         const response = await fetch('/.netlify/functions/pokedex').then(response => response.json())
         responseText.innerText = JSON.stringify(response)
-      })*/
+      })
 
       fetchKantoBtn.addEventListener('click', async () => {
         const response = await fetch('/.netlify/functions/pokedex', {
@@ -82,7 +90,7 @@
         }).then(response => response.json())
         responseText.innerText = JSON.stringify(response)
       })
-    })
+    
   </script>
 </body>
 
