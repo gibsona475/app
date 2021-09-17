@@ -15,32 +15,32 @@
   <!--<header id="header"> || Move It Move It || Have you moved today?</header>-->
   <section>
     <div class="container">
-      <h1>|| Move It Move It || Have you moved today?</h1>
+      <header class="header">|| We provide motivation to help you stay active!||</header>
     </div>
     <div class="container">
       <!-- <button class="fetch-kanto-btn"> YES </button>
       <button class="fetch-hoenn-btn"> NO... </button> -->
-      <button id="apiButton"> API Button </button>
+      <button id="apiButton"> Click for motivation </button>
     </div>
   </section>
   <section class="response medpad">
-
+    <p id="response-output">Motivation Loading...</p>
   </section>
 
   <section class="medpad">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 bullets">
+        <div class="col-md-5 bullets">
           <p> Pros of moving:
             <li> Exercise controls weight</li>
-            <li> Exercise can help prevent excess weight gain or help maintain weight loss </li>
+            <li> Exercise can help prevent excess weight gain  </li>
             <li> Exercise combats health conditions and diseases. </li>
             <li> Exercise improves mood </li>
             <li> Exercise boosts energy </li>
             <li> Exercise promotes better sleep </li>
           </p>
         </div>
-        <div class="col-md-6 bullets">
+        <div class="col-md-5 bullets">
           <p class="mb-1"> Cons of not moving:
             <li> Obesity </li>
             <li> Heart diseases, including coronary artery disease and heart attack </li>
@@ -57,15 +57,12 @@
       </div>
     </div>
   </section>
-  <p id="response-output">Response Placeholder</p>
-  <img id="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ronburgundy-1520353235.png">
+
 
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const fetchBtn = document.getElementById('fetch-btn')
-      const fetchKantoBtn = document.getElementById('fetch-kanto-btn')
-      const fetchHoennBtn = document.getElementById('fetch-hoenn-btn')
       const fetchApi = document.getElementById('apiButton')
 
       const responseText = document.getElementById('response-output')
