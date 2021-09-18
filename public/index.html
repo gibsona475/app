@@ -12,14 +12,11 @@
 </head>
 
 <body class="body">
-  <!--<header id="header"> || Move It Move It || Have you moved today?</header>-->
   <section>
     <div class="container">
       <header class="header">|| We provide motivation to help you stay active!||</header>
     </div>
     <div class="container">
-      <!-- <button class="fetch-kanto-btn"> YES </button>
-      <button class="fetch-hoenn-btn"> NO... </button> -->
       <button id="apiButton"> Click for motivation </button>
     </div>
   </section>
@@ -33,7 +30,7 @@
         <div class="col-md-5 bullets">
           <p> Pros of moving:
             <li> Exercise controls weight</li>
-            <li> Exercise can help prevent excess weight gain  </li>
+            <li> Exercise can help prevent excess weight gain </li>
             <li> Exercise combats health conditions and diseases. </li>
             <li> Exercise improves mood </li>
             <li> Exercise boosts energy </li>
@@ -58,8 +55,6 @@
     </div>
   </section>
 
-
-
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const fetchBtn = document.getElementById('fetch-btn')
@@ -73,22 +68,6 @@
         responseText.innerText = JSON.stringify(response)
       })
     })
-
-    // fetchPokedexBtn.addEventListener('click', async () => {
-    //   const response = await fetch('/.netlify/functions/pokedex').then(response => response.json())
-    //   responseText.innerText = JSON.stringify(response)
-    // })
-
-    // fetchKantoBtn.addEventListener('click', async () => {
-    //   const response = await fetch('/.netlify/functions/pokedex', {
-    //     method: 'POST',
-    //     body: JSON.stringify({
-    //       region: 'kanto'
-    //     })
-    //   }).then(response => response.json())
-    //   responseText.innerText = JSON.stringify(response)
-    // })
-
   </script>
 </body>
 
